@@ -1,0 +1,52 @@
+<div class="card">
+    <div class="card-header">
+        <h2 class="h3 text-center text-capitalize">Administración de Libros.
+        </h2>
+        <hr>
+        <div class="d-flex">
+            <div class="flex-fill">
+                <div class="form-group row">
+                    <label class="col-md-2 col-xl-1" for="search">Buscar:</label> <input type="text" class="form-control col-md-8 col-lg-4" #search>
+                    <button type="button" id="btnSearch" class="btn btn-primary ml-2">
+                        <span class="fa fa-search"></span>
+                    </button>
+                </div>
+            </div>
+            <div class="justify-content-end">
+                <button type="button" id="btnModal" class="btn btn-primary mb-1 align-items-end flex-column">
+                    <span class="fa fa-plus"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped table-hover">
+                <caption>List of books</caption>
+                <thead>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre Libro</th>
+                    <th scope="col">ISBN</th>
+                    <th scope="col">Editorial</th>
+                    <th scope="col">Autores</th>
+                    <th scope="col" class="text-center text-uppercase" colspan="2">ACCIONES</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let book of books">
+                        <td>{{book.id}}</td>
+                        <td class="text-uppercase text-center">{{book.title}}</td>
+                        <td>{{book.isbn}}</td>
+                        <td>{{book.publisher.name}}</td>
+                        <td>
+                            <span *ngFor="let authors of book.authors">{{authors.fullName}}</span>
+                        </td>
+                        <td class="text-center">
+                            <span class="fa fa-edit text-primary mr-4 btnUpdate"></span>
+                            <span class="fa fa-trash text-danger btnDelete"></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
